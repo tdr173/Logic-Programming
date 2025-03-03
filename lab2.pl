@@ -1,4 +1,3 @@
-
 % Exercise 1
 gcd(X,X,X).
 gcd(X,Y,Z) :- X>Y, Diff is X-Y, gcd(Diff, Y, Z).
@@ -31,3 +30,7 @@ fib_bwd(X, R) :- X>1, X1 is X-1, X2 is X-2, fib(X1,R1), fib(X2,R2), R is R1+R2.
 fib_fwd(0,Acc1,_,X) :- Acc1 = X.
 fib_fwd(N,Acc1,Acc2,X) :- N>0, N1 is N-1, AccNext is Acc1+Acc2, fib_fwd(N1, Acc2, AccNext,X).
 fib_fwd(N,X) :- fib_fwd(N,0,1,X).    
+
+fib2(0,0,1).
+fib2(N,F1,F2) :- N>0, N1 is N-1, fib2(N1,A,B), F1 is B, F2 is A+B.
+fib2(N,X) :- fib2(N, X, _).
