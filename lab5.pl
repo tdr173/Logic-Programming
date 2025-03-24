@@ -69,3 +69,22 @@ partition_lens(_, [], [], []).
 
 
 % 2.insertion_sort_forward
+ins_sort_fwd(L, R) :- 
+    ins_sort_fwd(L, [], R).
+
+ins_sort_fwd([H|T], Acc, R) :- 
+    insert_ord(H, Acc, Acc1), 
+    ins_sort_fwd(T, Acc1, R).
+
+ins_sort_fwd([], Acc, Acc).
+
+insert_ord(X, [H|T], Acc, R) :- 
+    X > H, !, 
+    insert_ord(X, T, [H|Acc], R).
+
+insert_ord(X, L, Acc, R) :- 
+    reverse([X|Acc], Acc1), 
+    append(Acc1, L, R).
+
+
+
