@@ -18,3 +18,4 @@ append_il([H|T], L2, [H|R]) :-
 reverse_il(L, R) :- reverse_il(L, [], R).
 reverse_il(L, Acc, R) :- var(L), !, append(Acc, L, R).
 reverse_il([H|T], Acc, R) :- reverse_il(T, [H|Acc], R).
+
